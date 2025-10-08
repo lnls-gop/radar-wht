@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Radar PyWhats
+Exec=/home/sirius/shared/gop-services/radar-wht/radar-wht.bash
+Icon=/home/sirius/shared/gop-services/radar-wht/radar-wht.png
+Terminal=false
+Type=Application
+Categories=Utility;
+
