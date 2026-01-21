@@ -1,7 +1,10 @@
+PyWhatKit_DB.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
+
 
 # C extensions
 *.so
