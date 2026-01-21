@@ -1,2 +1,282 @@
 # PyWhatKit Database
 # Created: 2025-10-06 05:25:59.233002
+Date: 5/11/2025
+Time: 1:46
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 1:50
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 1:50
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 1:51
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 1:52
+Phone Number: +5519997495222
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 1:53
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.041 mA
+--------------------
+Date: 5/11/2025
+Time: 1:59
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 2:2
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 2:3
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.038 mA
+--------------------
+Date: 5/11/2025
+Time: 2:3
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.038 mA
+--------------------
+Date: 5/11/2025
+Time: 2:25
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 2:26
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.039 mA
+--------------------
+Date: 5/11/2025
+Time: 2:26
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.039 mA
+--------------------
+Date: 5/11/2025
+Time: 2:27
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 2:28
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 2:30
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 2:31
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.039 mA
+--------------------
+Date: 5/11/2025
+Time: 2:31
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.039 mA
+--------------------
+Date: 5/11/2025
+Time: 2:32
+Phone Number: +5519997495222
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.039 mA
+--------------------
+Date: 5/11/2025
+Time: 2:33
+Phone Number: +5519992659985
+Message: O loop do SOFB abriu! PV: SI-Glob:AP-SOFB:LoopState-Sts
+--------------------
+Date: 5/11/2025
+Time: 3:29
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 3:30
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.038 mA
+--------------------
+Date: 5/11/2025
+Time: 3:33
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 3:34
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 3:34
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 3:45
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 3:46
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.039 mA
+--------------------
+Date: 5/11/2025
+Time: 3:47
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.039 mA
+--------------------
+Date: 5/11/2025
+Time: 4:2
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 4:3
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.038 mA
+--------------------
+Date: 5/11/2025
+Time: 4:3
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.038 mA
+--------------------
+Date: 5/11/2025
+Time: 4:58
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 4:58
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.038 mA
+--------------------
+Date: 5/11/2025
+Time: 4:59
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.038 mA
+--------------------
+Date: 5/11/2025
+Time: 5:27
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 5:27
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 5:28
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 5:29
+Phone Number: +5519997495222
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 5:30
+Phone Number: +5519992659985
+Message: O loop do SOFB abriu! PV: SI-Glob:AP-SOFB:LoopState-Sts
+--------------------
+Date: 5/11/2025
+Time: 5:30
+Phone Number: +5519996018157
+Message: O loop do SOFB abriu! PV: SI-Glob:AP-SOFB:LoopState-Sts
+--------------------
+Date: 5/11/2025
+Time: 5:37
+Phone Number: +5519992659985
+Message: A contagem regressiva da IHM foi inciada, valor atual: -0.1 segundos
+--------------------
+Date: 5/11/2025
+Time: 5:38
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 5:39
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 5:39
+Phone Number: +5519997495222
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: -0.040 mA
+--------------------
+Date: 5/11/2025
+Time: 5:40
+Phone Number: +5519992659985
+Message: O loop do SOFB abriu! PV: SI-Glob:AP-SOFB:LoopState-Sts
+--------------------
+Date: 11/12/2025
+Time: 3:15
+Phone Number: +5519992659985
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.100 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:16
+Phone Number: +5519996018157
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.100 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:16
+Phone Number: +5519997495222
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.100 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:21
+Phone Number: +5519992659985
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.130 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:21
+Phone Number: +5519996018157
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.130 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:23
+Phone Number: +5519992659985
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.180 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:24
+Phone Number: +5519996018157
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.180 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:40
+Phone Number: +5519992659985
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.250 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:41
+Phone Number: +5519996018157
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.250 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:43
+Phone Number: +5519992659985
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.100 ºC
+--------------------
+Date: 11/12/2025
+Time: 3:44
+Phone Number: +5519996018157
+Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.100 ºC
+--------------------

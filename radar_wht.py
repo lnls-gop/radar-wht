@@ -150,6 +150,7 @@ class MonitorThread(QThread, QObject):
             ("Verifique a fonte dos Quadrupolos da TB!", "TS-02:PS-QD2:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Verifique a fonte dos Quadrupolos da TB!", "TS-04:PS-QD4A:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Verifique a fonte dos Quadrupolos da TB!", "TS-04:PS-QD4B:PwrState-Sts", 0.5, 1.0, " Sts"),
+            ("Verifique o Interlock de Órbita", "RA-RaSIB01:TI-EVE:Network-Mon", 0.5, 1.0, " Sts"),
             ("Verifique a temp. do Amp. V Dimtel (BbB)", "SI-Glob:DI-BbBProc-V:TEMP_EXT1", 20.00, 45.00, " ºC"),
             ("Verifique a temp. do Amp. H Dimtel (BbB", "SI-Glob:DI-BbBProc-H:TEMP_EXT1", 20.00, 55.00, " ºC"),
             ("Verifique a temp. do Amp. L Dimtel (BbB", "SI-Glob:DI-BbBProc-L:TEMP_EXT2", 20.00, 45.00, " ºC"),
@@ -182,32 +183,50 @@ class MonitorThread(QThread, QObject):
     def default_schedules(self):
         from datetime import datetime, timedelta
         today = datetime.today()
+
+
+
+        
     
         # Encontra a última segunda-feira
         last_monday = today - timedelta(days=today.weekday())
 
         # Verifica se o dia da segunda-feira é ímpar ou par
+        # N° finais dos contatos do GOP:
+        # 7074 = Alex
+        # 4332 = Carlos
+        # 1530 = Vanusa
+        # 5126 = Daniel
+        # 9985 = Wagner
+        # 8157 = Operação
+        # 5222 = Walter
+
         if last_monday.day % 2 == 1:  # Dia ímpar
             case = 1
         else:  # Dia par
             case = 2
         if case == 1:
             return { 
-                "+5519991844332": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
-                "+5519984217074": [{"day": "Sunday", "start": "19:00", "end": "23:59"}, {"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
-                "+5519992659985": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:00", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
+                
+                "+5519984217074": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
+                "+5519991844332": [{"day": "Sunday", "start": "19:00", "end": "23:59"}, {"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
+                "+5519992225126": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:00", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
+                "+5519992659985": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
                 "+5519974231530": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
                 "+5519996018157": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
                 "+5519997495222": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
+                #"+5519992225126": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
             }
         elif case == 2:
             return {
-               "+5519984217074": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
-               "+5519992659985": [{"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
-               "+5519991844332": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
+                
+               "+5519992225126": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
+               "+5519991844332": [{"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
+               "+5519992659985": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
                "+5519974231530": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
                "+5519996018157": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
                "+5519997495222": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
+               "+5519984217074": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
             }
         else:
             return "caso inválido"
@@ -293,7 +312,7 @@ class MonitorThread(QThread, QObject):
 
                     self.log_signal.emit(f"Valor atual: {valor}, Shift: {shift}")
 
-                    if shift == 0 or shift == 10 and lim_and == 1.00:
+                    if shift == 0 or shift == 4 and lim_and == 1.00:
                         if valor is not None:
                             valor_ar = round(valor, 5)
                             if valor < limite_inferior or valor > limite_superior:
