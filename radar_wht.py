@@ -183,11 +183,6 @@ class MonitorThread(QThread, QObject):
     def default_schedules(self):
         from datetime import datetime, timedelta
         today = datetime.today()
-
-
-
-        
-    
         # Encontra a última segunda-feira
         last_monday = today - timedelta(days=today.weekday())
 
@@ -219,14 +214,13 @@ class MonitorThread(QThread, QObject):
             }
         elif case == 2:
             return {
-                
-               "+5519992225126": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
-               "+5519991844332": [{"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
-               "+5519992659985": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
+               "+5519992225126": [{"day": "Sunday", "start": "19:00", "end": "23:59"}, {"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
+               "+5519991844332": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
+               "+5519984217074": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
                "+5519974231530": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
                "+5519996018157": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
                "+5519997495222": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
-               "+5519984217074": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
+               "+5519992659985": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
             }
         else:
             return "caso inválido"
