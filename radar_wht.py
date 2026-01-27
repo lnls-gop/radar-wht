@@ -2,10 +2,9 @@
 
 import sys
 from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout, QLabel,
-                             QComboBox, QLineEdit, QFormLayout, QGroupBox, QTextEdit, QSplitter,
-                             QCheckBox, QTimeEdit, QScrollArea, QFrame, QGridLayout, QHBoxLayout,)
+                             QComboBox, QLineEdit, QGroupBox, QTextEdit, QSplitter,
+                             QTimeEdit, QScrollArea, QFrame, QHBoxLayout,)
 from PyQt5.QtWidgets import QMainWindow, QApplication
-from PyQt5.QtGui import QMovie
 from PyQt5.QtCore import QThread, pyqtSignal, Qt, QObject
 from PyQt5.QtGui import QPixmap
 import epics
@@ -14,6 +13,7 @@ import pywhatkit
 import datetime
 import time
 import subprocess
+
 
 class MonitorThread(QThread, QObject):
     update_pv_log = pyqtSignal(list)
@@ -284,36 +284,34 @@ class MonitorThread(QThread, QObject):
         except Exception as e:
             self.log_signal.emit(f"Erro durante stop_pv_monitors: {e}")
 
-    #def get_destinatarios_alerta(self, variavel_epics, schedules):
-    #    rad_prefix = "RAD:"
-    #    rad_target = "+5514996556859"
-    #    rad_ignore_schedule = True  # True = envia 24x7
-#
-    #    is_rad = str(variavel_epics).startswith(rad_prefix)
-#
-    #    if is_rad:
-    #        self.log_signal.emit(f"PV RAD detectada: {variavel_epics}")
-#
-    #        if rad_ignore_schedule:
-    #            return {
-    #                rad_target: [{
-    #                    "day": "Everyday",
-    #                    "start": "00:01",
-    #                    "end": "23:59"
-    #                }]
-    #            }
-    #        else:
-    #            if rad_target in schedules:
-    #                return {rad_target: schedules[rad_target]}
-    #            else:
-    #                self.log_signal.emit(
-    #                    f"Número RAD não possui escala cadastrada. Alerta ignorado."
-    #                )
-    #                return {}
-    #    else:
-    #        return schedules
+    def get_destinatarios_alerta(self, variavel_epics, schedules):
+       rad_prefix = "RAD:"
+       rad_target = "+5514996556859"
+       rad_ignore_schedule = True  # True = envia 24x7
 
+       is_rad = str(variavel_epics).startswith(rad_prefix)
 
+       if is_rad:
+           self.log_signal.emit(f"PV RAD detectada: {variavel_epics}")
+
+           if rad_ignore_schedule:
+               return {
+                   rad_target: [{
+                       "day": "Everyday",
+                       "start": "00:01",
+                       "end": "23:59"
+                   }]
+               }
+           else:
+               if rad_target in schedules:
+                   return {rad_target: schedules[rad_target]}
+               else:
+                   self.log_signal.emit(
+                       f"Número RAD não possui escala cadastrada. Alerta ignorado."
+                   )
+                   return {}
+       else:
+           return schedules
 
     def run(self):
         schedules = self.default_schedules()
@@ -427,7 +425,6 @@ class MonitorThread(QThread, QObject):
                 log_history = log_history[-100:]
             time.sleep(3)
 
-# TEST
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -440,8 +437,6 @@ class MainWindow(QMainWindow):
         self.custom_variables_group = QGroupBox("Variáveis Personalizadas")
         self.user_contacts_updated = pyqtSignal(dict)  # Sinal para atualizar os contatos #new
         
-        
-
     def init_ui(self):
         # Configurações da Janela Principal
         self.setWindowTitle('Monitor PyWhatsapp')
@@ -583,7 +578,6 @@ class MainWindow(QMainWindow):
         else:
             self.start_button.setEnabled(True)
 
-
     def add_variable_field(self):
         var_layout = QVBoxLayout()
         var_fields = {}
@@ -603,8 +597,6 @@ class MainWindow(QMainWindow):
         self.apply_custom_variables_layout.addWidget(variable_group)
 
         self.custom_variable_list.append(var_fields)
-
-
 
     def apply_custom_variables(self):
         custom_vars = []
@@ -690,6 +682,7 @@ class MainWindow(QMainWindow):
         self.variableLogTextEdit.append("Monitorando as seguintes variáveis:")
         for variable in variable_list:
             self.variableLogTextEdit.append(variable)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
