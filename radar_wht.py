@@ -29,14 +29,15 @@ class MonitorThread(QThread, QObject):
         self.user_contacts = user_contacts or self.default_schedules()
         #self.schedules = MonitorThread.default_schedules(start_day=23)
         self.timer_end_msg_sent = False
+        self.last_schedule_update = datetime.date.today()
 
     def runn(self):
         shift = epics.caget("AS-Glob:AP-MachShift:Mode-Sts")
         timer_ihm  = epics.caget('AS-Glob:PP-Summary:TunAccessWaitTimeLeft-Mon')
         timer_ihm_end = epics.caget('AS-Glob:PP-Summary:TunAccessWaitTime-Cte')
         pv_names_avar = [
-            'TU-0160:AC-PT100:MeanTemperature-Mon'
-            , 'TU-0308:AC-PT100:MeanTemperature-Mon', 
+            'TU-0160:AC-PT100:MeanTemperature-Mon',
+            'TU-0308:AC-PT100:MeanTemperature-Mon', 
             'TU-0914:AC-PT100:MeanTemperature-Mon', 
             'TU-5156:AC-PT101:MeanTemperature-Mon',  
             'TU-3944:AC-PT101:MeanTemperature-Mon', 'TU-4550:AC-PT100:MeanTemperature-Mon', 
@@ -86,8 +87,8 @@ class MonitorThread(QThread, QObject):
             ("Corretora CV-2 do SI-14SB:ID-IVU18 desligou (PNR)!", "SI-14SB:PS-CV-2:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Corretora CC1-1 do SI-06SB:ID-VPU29 desligou (CNB)!", "SI-06SB:PS-CC1-1:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Corretora CC1-2 do SI-06SB:ID-VPU29 desligou (CNB)!", "SI-06SB:PS-CC1-2:PwrState-Sts", 0.5, 1.0, " Sts"),
-            ("Corretora CC1-3 do SI-06SB:ID-VPU29 desligou (CNB)!", "SI-06SB:PS-CC1-3:PwrState-Sts", 0.5, 1.0, " Sts"),
-            ("Corretora CC1-4 do SI-06SB:ID-VPU29 desligou (CNB)!", "SI-06SB:PS-CC1-4:PwrState-Sts", 0.5, 1.0, " Sts"),
+            #("Corretora CC1-3 do SI-06SB:ID-VPU29 desligou (CNB)!", "SI-06SB:PS-CC1-3:PwrState-Sts", 0.5, 1.0, " Sts"),
+            #("Corretora CC1-4 do SI-06SB:ID-VPU29 desligou (CNB)!", "SI-06SB:PS-CC1-4:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Queda do Feixe!", "SI-Glob:AP-CurrInfo:Current-Mon", 10.99, 201.99, " mA"),
             ("Atenção, verifique as medidas do Thermo1 (SI-10-HALL43-GNT)", "RAD:Thermo1:TotalDoseRate:Dose", 0.1, 1.0, " uSv"),
             ("Atenção, verifique as medidas do Thermo2 (SI-09-RACK09-40-GNT)", "RAD:Thermo2:TotalDoseRate:Dose", 0.1, 1.0, " uSv"),
@@ -136,7 +137,7 @@ class MonitorThread(QThread, QObject):
             ("Verifique a fonte dos Quadrupolos da TB!", "TB-02:PS-QF2A:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Verifique a fonte dos Quadrupolos da TB!", "TB-02:PS-QF2B:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Verifique a fonte dos Quadrupolos da TB!", "TB-03:PS-QF3:PwrState-Sts", 0.5, 1.0, " Sts"),
-            ("Verifique a fonte dos Quadrupolos da TB!", "TB-04:PS-QF4:PwrState-Sts", 0.5, 1.0, " Sts"),
+            #("Verifique a fonte dos Quadrupolos da TB!", "TB-04:PS-QF4:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Verifique a fonte dos Quadrupolos da TB!", "TB-01:PS-QD1:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Verifique a fonte dos Quadrupolos da TB!", "TB-02:PS-QD2A:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Verifique a fonte dos Quadrupolos da TB!", "TB-02:PS-QD2B:PwrState-Sts", 0.5, 1.0, " Sts"),
@@ -224,6 +225,14 @@ class MonitorThread(QThread, QObject):
             }
         else:
             return "caso inválido"
+    
+    # ======= função nova para as escalas 270126 =======
+    def update_schedules_daily(self):
+        today = datetime.date.today()
+        if today != self.last_schedule_update:
+            self.user_contacts = self.default_schedules()
+            self.last_schedule_update = today
+            self.log_signal.emit("Escalas atualizadas automaticamente.")
         
     def msg_tunel(self, average):
         ## envio de mensagem com cálculo de PVs:
@@ -314,6 +323,7 @@ class MonitorThread(QThread, QObject):
            return schedules
 
     def run(self):
+        print('h')
         schedules = self.default_schedules()
         schedules = self.user_contacts
         log_history = []
@@ -322,6 +332,7 @@ class MonitorThread(QThread, QObject):
         self.update_pv_log_gui.emit([var[1] for var in self.variaveis_epics])
 
         while self.running:
+            self.update_schedules_daily()
             self.runn()
             try:
                 for mensagem, variavel_epics, limite_inferior, limite_superior, grandeza, *rest in self.variaveis_epics:
