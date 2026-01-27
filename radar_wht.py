@@ -427,7 +427,7 @@ class MonitorThread(QThread, QObject):
                 log_history = log_history[-100:]
             time.sleep(3)
 
-
+# TEST
 
 class MainWindow(QMainWindow):
     def __init__(self):
