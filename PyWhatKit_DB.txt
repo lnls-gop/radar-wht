@@ -280,3 +280,153 @@ Time: 3:44
 Phone Number: +5519996018157
 Message: Temperatura do C4 fora do SP! PV: LA-CN:H1MPS-1:K1Temp1, Valor: 20.100 ºC
 --------------------
+Date: 23/1/2026
+Time: 10:6
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo9 está acima de 1 µSv (SI-02-HALL20-GNT) PV: RAD:Thermo9:TotalDoseRate:Dose, Valor: 0.649 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:11
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo4 (SI-14-RACK14-57-GNT) PV: RAD:Thermo4:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:12
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo5 (SI-19-HALL10-GNT) PV: RAD:Thermo5:TotalDoseRate:Dose, Valor: 0.597 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:13
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo7 (SI-08-RACK08-37-GNT) PV: RAD:Thermo7:TotalDoseRate:Dose, Valor: 0.584 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:14
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.631 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:15
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo9 está acima de 1 µSv (SI-02-HALL20-GNT) PV: RAD:Thermo9:TotalDoseRate:Dose, Valor: 0.649 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:16
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo4 (SI-14-RACK14-57-GNT) PV: RAD:Thermo4:TotalDoseRate:Dose, Valor: 0.629 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:17
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo5 (SI-19-HALL10-GNT) PV: RAD:Thermo5:TotalDoseRate:Dose, Valor: 0.597 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:18
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo7 (SI-08-RACK08-37-GNT) PV: RAD:Thermo7:TotalDoseRate:Dose, Valor: 0.585 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:18
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.631 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:23
+Phone Number: +5519992659985
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.631 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:23
+Phone Number: +5519974231530
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.631 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:24
+Phone Number: +5519996018157
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.631 µSv
+--------------------
+Date: 23/1/2026
+Time: 10:25
+Phone Number: +5519997495222
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.631 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:12
+Phone Number: +5519992659985
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:13
+Phone Number: +5519974231530
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:13
+Phone Number: +5519996018157
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:14
+Phone Number: +5519997495222
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:16
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:19
+Phone Number: +5519992659985
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:20
+Phone Number: +5519974231530
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:21
+Phone Number: +5519996018157
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:21
+Phone Number: +5519997495222
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.628 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:39
+Phone Number: +5519992659985
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.630 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:40
+Phone Number: +5519974231530
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.630 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:41
+Phone Number: +5519996018157
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.630 µSv
+--------------------
+Date: 23/1/2026
+Time: 11:42
+Phone Number: +5519997495222
+Message: Atenção, verifique as medidas do Thermo8 (SI-01-HALL18-GT) PV: RAD:Thermo8:TotalDoseRate:Dose, Valor: 0.630 µSv
+--------------------
+Date: 23/1/2026
+Time: 15:24
+Phone Number: +5514996556859
+Message: Atenção, verifique as medidas do Thermo16 (SI-08-HALL38-GNT) PV: RAD:Thermo16:TotalDoseRate:Dose, Valor: 0.579 uSv
+--------------------
+Date: 23/1/2026
+Time: 15:28
+Phone Number: +5519992659985
+Message: Atenção, verifique as medidas do Thermo16 (SI-08-HALL38-GNT) PV: RAD:Thermo16:TotalDoseRate:Dose, Valor: 0.579 uSv
+--------------------
+Date: 23/1/2026
+Time: 15:29
+Phone Number: +5519974231530
+Message: Atenção, verifique as medidas do Thermo16 (SI-08-HALL38-GNT) PV: RAD:Thermo16:TotalDoseRate:Dose, Valor: 0.579 uSv
+--------------------

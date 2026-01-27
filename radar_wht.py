@@ -284,6 +284,37 @@ class MonitorThread(QThread, QObject):
         except Exception as e:
             self.log_signal.emit(f"Erro durante stop_pv_monitors: {e}")
 
+    #def get_destinatarios_alerta(self, variavel_epics, schedules):
+    #    rad_prefix = "RAD:"
+    #    rad_target = "+5514996556859"
+    #    rad_ignore_schedule = True  # True = envia 24x7
+#
+    #    is_rad = str(variavel_epics).startswith(rad_prefix)
+#
+    #    if is_rad:
+    #        self.log_signal.emit(f"PV RAD detectada: {variavel_epics}")
+#
+    #        if rad_ignore_schedule:
+    #            return {
+    #                rad_target: [{
+    #                    "day": "Everyday",
+    #                    "start": "00:01",
+    #                    "end": "23:59"
+    #                }]
+    #            }
+    #        else:
+    #            if rad_target in schedules:
+    #                return {rad_target: schedules[rad_target]}
+    #            else:
+    #                self.log_signal.emit(
+    #                    f"Número RAD não possui escala cadastrada. Alerta ignorado."
+    #                )
+    #                return {}
+    #    else:
+    #        return schedules
+
+
+
     def run(self):
         schedules = self.default_schedules()
         schedules = self.user_contacts
@@ -328,6 +359,8 @@ class MonitorThread(QThread, QObject):
                                 else:
                                     log_history.append(log_entry)
                                     self.log_signal.emit(log_entry)
+                                    #destinatarios = self.get_destinatarios_alerta(variavel_epics, schedules)
+                                    #for numero, schedule in destinatarios.items():
                                     for numero, schedule in schedules.items():
                                         if self.is_time_within_schedule(current_day, current_time, schedule):
                                             if valor_ar == 0.0:
@@ -663,7 +696,6 @@ if __name__ == '__main__':
     main_window = MainWindow()
     main_window.show()
     sys.exit(app.exec_())
-
 
 
 
