@@ -211,6 +211,7 @@ class MonitorThread(QThread, QObject):
                 "+5519974231530": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
                 "+5519996018157": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
                 "+5519997495222": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
+                
                 #"+5519992225126": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
             }
         elif case == 2:
@@ -219,9 +220,9 @@ class MonitorThread(QThread, QObject):
                "+5519991844332": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
                "+5519984217074": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
                "+5519974231530": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
+               "+5519992659985": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
                "+5519996018157": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
                "+5519997495222": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
-               "+5519992659985": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
             }
         else:
             return "caso inválido"
@@ -351,45 +352,35 @@ class MonitorThread(QThread, QObject):
                             valor_ar = round(valor, 5)
                             if valor < limite_inferior or valor > limite_superior:
                                 log_entry = f"Valor fora dos limites: {valor_ar}"
-
-                                # Verifica se o alerta é repetido no último minuto
+                                ALERT_INTERVAL = 3 * 60 
                                 last_time = last_alert_time.get(variavel_epics)
-                                last_message = last_alert_message.get(variavel_epics)
-                                repeated_alert = (
-                                    last_message == log_entry and 
-                                    last_time is not None and 
-                                    (now - last_time).total_seconds() < 120  # Último alerta foi enviado no último minuto
-                                )
-                                
-                                # Se for um alerta repetido, espera 5 minutos antes de reenviar
-                                if repeated_alert:
-                                    self.log_signal.emit(f"Alerta repetido detectado para {variavel_epics}. Aguardando 5 minutos para reenviar.")
-                                    time.sleep(300)  # Espera 5 minutos
-                                else:
-                                    log_history.append(log_entry)
-                                    self.log_signal.emit(log_entry)
-                                    #destinatarios = self.get_destinatarios_alerta(variavel_epics, schedules)
-                                    #for numero, schedule in destinatarios.items():
-                                    for numero, schedule in schedules.items():
-                                        if self.is_time_within_schedule(current_day, current_time, schedule):
-                                            if valor_ar == 0.0:
+                                if last_time and (now - last_time).total_seconds() < ALERT_INTERVAL:
+                                    # Ainda não deu 30 minutos
+                                    remaining = ALERT_INTERVAL - (now - last_time).total_seconds()
+                                    self.log_signal_emit_safe(
+                                        f"⏳ Alerta já enviado para {variavel_epics}. Próximo em {int(remaining/60)} min."
+                                    )
+                                    continue
+                                for numero, schedule in schedules.items():
+                                    if self.is_time_within_schedule(current_day, current_time, schedule):
+                                        if valor_ar == 0.0:
                                                 mensagem_envio = f"{mensagem} PV: {variavel_epics}"
-                                            else:
+                                        else:
                                                 mensagem_envio = f"{mensagem} PV: {variavel_epics}, Valor: {valor_ar:.3f} {grandeza}"
-                                            try:
+                                        try:
                                                 pywhatkit.sendwhatmsg_instantly(numero, mensagem_envio, 30, False)
                                                 self.signal.emit(mensagem_envio)
                                                 self.log_signal.emit(f"Mensagem enviada para {numero}: {mensagem_envio}")
                                                 # Atualiza o horário e a mensagem do último alerta enviado
                                                 last_alert_time[variavel_epics] = now
                                                 last_alert_message[variavel_epics] = log_entry
-                                            except Exception as e:
+                                        except Exception as e:
                                                 self.log_signal.emit(f"Erro ao enviar mensagem para {numero}: {e}")
-                                            time.sleep(15)  # Pequena pausa entre os envios de mensagem
+                                        time.sleep(15)  # Pequena pausa entre os envios de mensagem
                 self.check_ips(schedules, log_history)
                 if len(log_history) > 100:  # Limitar o histórico de logs
                     log_history = log_history[-100:]
-                #time.sleep(30)
+                
             except Exception as e:
                 self.log_signal.emit(f"Erro: {e}")
     
