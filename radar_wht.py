@@ -109,6 +109,7 @@ class MonitorThread(QThread, QObject):
             ("Temperatura do C4 fora do SP!", "LA-CN:H1MPS-1:K1Temp2", 18.10, 21.60, " ºC"),
             ("Temperatura do C4 fora do SP!", "LA-CN:H1MPS-1:K2Temp1", 18.10, 21.60, " ºC"),
             ("Temperatura do C4 fora do SP!", "LA-CN:H1MPS-1:K2Temp2", 18.10, 21.60, " ºC"),
+            ("FC da Sala de Fontes desligou!", "PA-MBTemp-03:CO-PT100-Ch3:Temp-Mon", 10.00, 14.00, " °C"),
             ("Temperatura do célula 1 da P5 fora do SP!", "BO-05D:RF-P5Cav:Cylin1T-Mon", 25.00, 31.50, " ºC"),
             ("Temperatura do célula 3 da P5 fora do SP!", "BO-05D:RF-P5Cav:Cylin3T-Mon", 25.00, 31.40, " ºC"),
             ("Temperatura do célula 5 da P5 fora do SP!", "BO-05D:RF-P5Cav:Cylin5T-Mon", 25.00, 31.30, " ºC"),
@@ -153,7 +154,7 @@ class MonitorThread(QThread, QObject):
             ("Verifique a fonte dos Quadrupolos da TB!", "TS-04:PS-QD4B:PwrState-Sts", 0.5, 1.0, " Sts"),
             ("Verifique o Interlock de Órbita", "RA-RaSIB01:TI-EVE:Network-Mon", 0.5, 1.0, " Sts"),
             ("Verifique a temp. do Amp. V Dimtel (BbB)", "SI-Glob:DI-BbBProc-V:TEMP_EXT1", 20.00, 45.00, " ºC"),
-            ("Verifique a temp. do Amp. H Dimtel (BbB", "SI-Glob:DI-BbBProc-H:TEMP_EXT1", 20.00, 55.00, " ºC"),
+            ("Verifique a temp. do Amp. H Dimtel (BbB", "SI-Glob:DI-BbBProc-H:TEMP_EXT1", 20.00, 45.00, " ºC"),
             ("Verifique a temp. do Amp. L Dimtel (BbB", "SI-Glob:DI-BbBProc-L:TEMP_EXT2", 20.00, 45.00, " ºC"),
             ("Verifique a potência da Klystron 2", "LA-RF:LLRF:KLY2:GET_CH1_POWER", 15.00, 21.00, " MW"),
             ("Verifique a potência da Klystron 1", "LA-RF:LLRF:KLY1:GET_CH1_POWER", 25.00, 36.00, " MW"),
@@ -184,8 +185,13 @@ class MonitorThread(QThread, QObject):
     def default_schedules(self):
         from datetime import datetime, timedelta
         today = datetime.today()
+        
+        delta = (7 - today.weekday()) % 7
+        delta = 7 if delta == 0 else delta  # se "hoje" já for segunda, próxima é +7 
+        next_monday = today + timedelta(days=delta)
+        
         # Encontra a última segunda-feira
-        last_monday = today - timedelta(days=today.weekday())
+        #last_monday = today - timedelta(days=today.weekday())
 
         # Verifica se o dia da segunda-feira é ímpar ou par
         # N° finais dos contatos do GOP:
@@ -196,29 +202,29 @@ class MonitorThread(QThread, QObject):
         # 9985 = Wagner
         # 8157 = Operação
         # 5222 = Walter
-
-        if last_monday.day % 2 == 1:  # Dia ímpar
+        
+        #troquei last por next
+        if next_monday.day % 2 == 1:  # Dia ímpar
             case = 1
         else:  # Dia par
             case = 2
+
         if case == 1:
             return { 
-                
                 "+5519984217074": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
                 "+5519991844332": [{"day": "Sunday", "start": "19:00", "end": "23:59"}, {"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
-                "+5519992225126": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:00", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
+                "+5519992225126": [{"day": "Sunday", "start": "19:00", "end": "23:59"}, {"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
                 "+5519992659985": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
-                "+5519974231530": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
+                "+5519974231530": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
                 "+5519996018157": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
                 "+5519997495222": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
-                #"+5519992225126": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
             }
         elif case == 2:
             return {
-               "+5519992225126": [{"day": "Sunday", "start": "19:00", "end": "23:59"}, {"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
+               "+5519992225126": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
                "+5519991844332": [{"day": "Monday", "start": "19:00", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "07:00"}, {"day": "Wednesday", "start": "19:00", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "07:00"}, {"day": "Friday", "start": "19:00", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "07:00"}],
                "+5519984217074": [{"day": "Monday", "start": "07:00", "end": "19:00"}, {"day": "Wednesday", "start": "07:00", "end": "19:00"}, {"day": "Friday", "start": "07:00", "end": "19:00"}],
-               "+5519974231530": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
+               "+5519974231530": [{"day": "Sunday", "start": "19:00", "end": "23:59"}, {"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
                "+5519996018157": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
                "+5519997495222": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
                "+5519992659985": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
@@ -352,40 +358,54 @@ class MonitorThread(QThread, QObject):
                             if valor < limite_inferior or valor > limite_superior:
                                 log_entry = f"Valor fora dos limites: {valor_ar}"
 
-                                # Verifica se o alerta é repetido no último minuto
+                                ALERT_INTERVAL = 5 * 60  # 30 minutos em segundos
+
                                 last_time = last_alert_time.get(variavel_epics)
-                                last_message = last_alert_message.get(variavel_epics)
-                                repeated_alert = (
-                                    last_message == log_entry and 
-                                    last_time is not None and 
-                                    (now - last_time).total_seconds() < 120  # Último alerta foi enviado no último minuto
-                                )
-                                
-                                # Se for um alerta repetido, espera 5 minutos antes de reenviar
-                                if repeated_alert:
-                                    self.log_signal.emit(f"Alerta repetido detectado para {variavel_epics}. Aguardando 5 minutos para reenviar.")
-                                    time.sleep(300)  # Espera 5 minutos
-                                else:
-                                    log_history.append(log_entry)
-                                    self.log_signal.emit(log_entry)
-                                    #destinatarios = self.get_destinatarios_alerta(variavel_epics, schedules)
-                                    #for numero, schedule in destinatarios.items():
-                                    for numero, schedule in schedules.items():
-                                        if self.is_time_within_schedule(current_day, current_time, schedule):
-                                            if valor_ar == 0.0:
-                                                mensagem_envio = f"{mensagem} PV: {variavel_epics}"
-                                            else:
-                                                mensagem_envio = f"{mensagem} PV: {variavel_epics}, Valor: {valor_ar:.3f} {grandeza}"
-                                            try:
-                                                pywhatkit.sendwhatmsg_instantly(numero, mensagem_envio, 30, False)
-                                                self.signal.emit(mensagem_envio)
-                                                self.log_signal.emit(f"Mensagem enviada para {numero}: {mensagem_envio}")
-                                                # Atualiza o horário e a mensagem do último alerta enviado
-                                                last_alert_time[variavel_epics] = now
-                                                last_alert_message[variavel_epics] = log_entry
-                                            except Exception as e:
-                                                self.log_signal.emit(f"Erro ao enviar mensagem para {numero}: {e}")
-                                            time.sleep(15)  # Pequena pausa entre os envios de mensagem
+
+                                if last_time and (now - last_time).total_seconds() < ALERT_INTERVAL:
+                                    # Ainda não deu 30 minutos
+                                    remaining = ALERT_INTERVAL - (now - last_time).total_seconds()
+                                    self.log_signal_emit_safe(
+                                        f"Alerta já enviado para {variavel_epics}. Próximo em {int(remaining/60)} min."
+                                    )
+                                    
+                                    continue
+
+                                ## Verifica se o alerta é repetido no último minuto
+                                #last_time = last_alert_time.get(variavel_epics)
+                                #last_message = last_alert_message.get(variavel_epics)
+                                #repeated_alert = (
+                                #    last_message == log_entry and 
+                                #    last_time is not None and 
+                                #    (now - last_time).total_seconds() < 120  # Último alerta foi enviado no último minuto
+                                #)
+                                #
+                                ## Se for um alerta repetido, espera 5 minutos antes de reenviar
+                                #if repeated_alert:
+                                #    self.log_signal.emit(f"Alerta repetido detectado para {variavel_epics}. Aguardando 5 minutos para reenviar.")
+                                #    time.sleep(300)  # Espera 5 minutos
+                                #else:
+                                #    log_history.append(log_entry)
+                                #    self.log_signal.emit(log_entry)
+                                log_history.append(log_entry)
+                                self.log_signal.emit(log_entry)
+                                time.sleep(1)   
+                                for numero, schedule in schedules.items():
+                                    if self.is_time_within_schedule(current_day, current_time, schedule):
+                                        if valor_ar == 0.0:
+                                            mensagem_envio = f"{mensagem} PV: {variavel_epics}"
+                                        else:
+                                            mensagem_envio = f"{mensagem} PV: {variavel_epics}, Valor: {valor_ar:.3f} {grandeza}"
+                                        try:
+                                            pywhatkit.sendwhatmsg_instantly(numero, mensagem_envio, 30, False)
+                                            self.signal.emit(mensagem_envio)
+                                            self.log_signal.emit(f"Mensagem enviada para {numero}: {mensagem_envio}")
+                                            # Atualiza o horário e a mensagem do último alerta enviado
+                                            last_alert_time[variavel_epics] = now
+                                            last_alert_message[variavel_epics] = log_entry
+                                        except Exception as e:
+                                            self.log_signal.emit(f"Erro ao enviar mensagem para {numero}: {e}")
+                                        time.sleep(20)  # Pequena pausa entre os envios de mensagem
                 self.check_ips(schedules, log_history)
                 if len(log_history) > 100:  # Limitar o histórico de logs
                     log_history = log_history[-100:]
