@@ -227,7 +227,6 @@ class MonitorThread(QThread, QObject):
                "+5519974231530": [{"day": "Sunday", "start": "19:00", "end": "23:59"}, {"day": "Monday", "start": "00:01", "end": "07:00"}, {"day": "Tuesday", "start": "19:00", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "07:00"}, {"day": "Thursday", "start": "19:00", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "07:00"}, {"day": "Saturday", "start": "19:00", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "07:00"}],
                "+5519996018157": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
                "+5519997495222": [{"day": "Monday", "start": "00:01", "end": "23:59"}, {"day": "Tuesday", "start": "00:01", "end": "23:59"}, {"day": "Wednesday", "start": "00:01", "end": "23:59"}, {"day": "Thursday", "start": "00:01", "end": "23:59"}, {"day": "Friday", "start": "00:01", "end": "23:59"}, {"day": "Saturday", "start": "00:01", "end": "23:59"}, {"day": "Sunday", "start": "00:01", "end": "23:59"}],
-               "+5519992659985": [{"day": "Sunday", "start": "07:00", "end": "19:00"}, {"day": "Tuesday", "start": "07:00", "end": "19:00"}, {"day": "Thursday", "start": "07:00", "end": "19:00"}, {"day": "Saturday", "start": "07:00", "end": "19:00"}],
             }
         else:
             return "caso inválido"
@@ -409,7 +408,7 @@ class MonitorThread(QThread, QObject):
                 self.check_ips(schedules, log_history)
                 if len(log_history) > 100:  # Limitar o histórico de logs
                     log_history = log_history[-100:]
-                #time.sleep(30)
+                
             except Exception as e:
                 self.log_signal.emit(f"Erro: {e}")
     
