@@ -430,3 +430,98 @@ Time: 15:29
 Phone Number: +5519974231530
 Message: Atenção, verifique as medidas do Thermo16 (SI-08-HALL38-GNT) PV: RAD:Thermo16:TotalDoseRate:Dose, Valor: 0.579 uSv
 --------------------
+Date: 18/2/2026
+Time: 12:3
+Phone Number: +5519992659985
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: 124.702 mA
+--------------------
+Date: 18/2/2026
+Time: 12:4
+Phone Number: +5519996018157
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: 124.702 mA
+--------------------
+Date: 18/2/2026
+Time: 12:5
+Phone Number: +5519997495222
+Message: Atenção, verefique o top up! PV: SI-13C4:DI-DCCT:Current-Mon, Valor: 124.702 mA
+--------------------
+Date: 18/2/2026
+Time: 12:6
+Phone Number: +5519992659985
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.506 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:29
+Phone Number: +5519992659985
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.413 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:29
+Phone Number: +5519996018157
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.413 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:30
+Phone Number: +5519997495222
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.413 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:34
+Phone Number: +5519992659985
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.506 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:34
+Phone Number: +5519996018157
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.538 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:35
+Phone Number: +5519997495222
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.600 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:37
+Phone Number: +5519992659985
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.631 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:37
+Phone Number: +5519996018157
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.631 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:38
+Phone Number: +5519997495222
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.631 ºC
+--------------------
+Date: 26/2/2026
+Time: 10:42
+Phone Number: +5519992659985
+Message: Verifique a temp. do Amp. V Dimtel (BbB) PV: SI-Glob:DI-BbBProc-V:TEMP_EXT1, Valor: 36.506 ºC
+--------------------
+Date: 26/2/2026
+Time: 11:5
+Phone Number: +5519992659985
+Message: Temperatura do célula 1 da P5 fora do SP! PV: BO-05D:RF-P5Cav:Cylin1T-Mon, Valor: 28.129 ºC
+--------------------
+Date: 26/2/2026
+Time: 11:6
+Phone Number: +5519996018157
+Message: Temperatura do célula 1 da P5 fora do SP! PV: BO-05D:RF-P5Cav:Cylin1T-Mon, Valor: 28.129 ºC
+--------------------
+Date: 26/2/2026
+Time: 11:7
+Phone Number: +5519997495222
+Message: Temperatura do célula 1 da P5 fora do SP! PV: BO-05D:RF-P5Cav:Cylin1T-Mon, Valor: 28.129 ºC
+--------------------
+Date: 26/2/2026
+Time: 11:10
+Phone Number: +5519992659985
+Message: Temperatura do célula 1 da P5 fora do SP! PV: BO-05D:RF-P5Cav:Cylin1T-Mon, Valor: 28.164 ºC
+--------------------
+Date: 26/2/2026
+Time: 11:11
+Phone Number: +5519996018157
+Message: Temperatura do célula 1 da P5 fora do SP! PV: BO-05D:RF-P5Cav:Cylin1T-Mon, Valor: 28.114 ºC
+--------------------
